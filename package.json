@@ -1,10 +1,12 @@
 {
   "name": "punching-machine-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Express + Supabase API for the Punching Machine Leaderboard",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +15,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/tanguyhardion/punching-machine-backend/issues"
   },
-  "homepage": "https://github.com/tanguyhardion/punching-machine-backend#readme"
+  "homepage": "https://github.com/tanguyhardion/punching-machine-backend#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
 }
