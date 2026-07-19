@@ -5,8 +5,7 @@
   "main": "api/scores.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "vercel dev"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
