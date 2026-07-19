@@ -1,12 +1,12 @@
 {
   "name": "punching-machine-backend",
   "version": "1.0.0",
-  "description": "Express + Supabase API for the Punching Machine Leaderboard",
-  "main": "src/index.js",
+  "description": "Vercel Serverless Functions + Supabase API for the Punching Machine Leaderboard",
+  "main": "api/scores.ts",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "build": "tsc",
+    "dev": "vercel dev"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/tanguyhardion/punching-machine-backend#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^2.110.5",
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "@supabase/supabase-js": "^2.110.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.3.3"
   }
 }
