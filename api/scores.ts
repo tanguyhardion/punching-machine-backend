@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { setCorsHeaders, handleOptionsRequest } from '../utils/cors.js';
-import { getSupabaseClient } from '../utils/database.js';
+import { setCorsHeaders, handleOptionsRequest } from '../utils/cors';
+import { getSupabaseClient } from '../utils/database';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   setCorsHeaders(req, res);
@@ -42,6 +42,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // POST - Save new score
   if (req.method === 'POST') {
+    // --- Master password check ---
+    const masterPassword = process.env.SUBMIT_PASSWORD;
+    if (!masterPassword) {
+      console.error('[scores] SUBMIT_PASSWORD env var is not set');
+      return res.status(500).json({ error: 'Server misconfiguration.' });
+    }
+    const provided = req.headers['x-submit-password'];
+    if (!provided || provided !== masterPassword) {
+      return res.status(401).json({ error: 'Unauthorized. Invalid or missing password.' });
+    }
+    // --- End password check ---
+
     try {
       const { player, score, power } = req.body ?? {};
 

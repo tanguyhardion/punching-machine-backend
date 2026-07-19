@@ -15,7 +15,7 @@ export function setCorsHeaders(req: VercelRequest, res: VercelResponse) {
   }
 
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Submit-Password');
   res.setHeader('Access-Control-Max-Age', '86400');
 
   // Security headers
